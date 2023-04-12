@@ -9,7 +9,7 @@ public class ButtonClick : MonoBehaviour
 
     public void ClickStart()
     {
-        SceneManager.LoadScene(Scenename);
+        SceneManager.LoadScene(Scenename); //버튼 클릭시 씬을 불러온다. 
     }
 
     public void ClickExit()

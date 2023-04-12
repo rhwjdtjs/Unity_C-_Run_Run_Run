@@ -19,8 +19,8 @@ public class CameraControllor : MonoBehaviour
     {
         if (target.gameObject != null)
         {
-            targetPosition.Set(target.transform.position.x+7,target.transform.position.y+1, this.transform.position.z);
-            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            targetPosition.Set(target.transform.position.x+7,target.transform.position.y+1, this.transform.position.z); //카메라를 타겟포지션으로 잡음
+            this.transform.position = Vector3.Lerp(this.transform.position, targetPosition, moveSpeed * Time.deltaTime); //카메라를 부드럽게 이동시킴
         }
     }
 }
