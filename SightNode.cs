@@ -18,6 +18,6 @@ public class SightNode : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        this.gameObject.SetActive(false);
+        this.gameObject.SetActive(false); //콜라이더와 닿으면 시야에서 사라짐
     }
 }

@@ -13,10 +13,10 @@ public class Maptrans : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag=="Player")
+        if(collision.gameObject.tag=="Player") //함정에 플레이어가 닿았다면
         {
             theplayer.currentMapName = transfermapname;
-            SceneManager.LoadScene(transfermapname);
+            SceneManager.LoadScene(transfermapname); //다시 플레이어를 맵 처음으로 이동시킴
         }
     }
     // Update is called once per frame

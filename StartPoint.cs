@@ -14,9 +14,9 @@ public class StartPoint : MonoBehaviour
         theplayer = FindObjectOfType<Player>();
         if (startpoint == theplayer.currentMapName)
         {
-            theplayer.transform.position = this.transform.position;
+            theplayer.transform.position = this.transform.position; //플레이어 위치를 해당 위치로 변경
         }
-        deadcount.text = "STAGE1 Number of Failed: " + GameManager.DeadCount;
+        deadcount.text = "STAGE1 Number of Failed: " + GameManager.DeadCount; //데스카운트 기록 및 출력
     }
 
     // Update is called once per frame

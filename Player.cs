@@ -33,34 +33,34 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (isGround)
+            if (isGround) //플레이어가 땅에 붙어있다면
             {
-                if (!GameEnd)
+                if (!GameEnd) //게임이 끝나지 않았다면
                 {
-                    isJump = true;
+                    isJump = true; //점프를 true
                     Debug.Log("Jump");
-                    therigidbody.velocity = Vector3.up * JumpForce;
-                    anim.SetBool("IsJump", isJump);
+                    therigidbody.velocity = Vector3.up * JumpForce; //위로 플레이어를 점프시킨다
+                    anim.SetBool("IsJump", isJump); //점프 애니메이션 활성화
                 }
             }
         }
     }
     public void Moving(float _Speed)
     {
-        transform.Translate(_Speed * Time.deltaTime, 0, 0);
+        transform.Translate(_Speed * Time.deltaTime, 0, 0); //플레이어를 이동시킨다.
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Ground")
+        if (collision.gameObject.tag == "Ground") //땅에 닿았을경우
         {
-            isGround = true;
-            isJump = false;
-            anim.SetBool("IsJump", isJump);
+            isGround = true; //isground true
+            isJump = false; //점프 비활성화
+            anim.SetBool("IsJump", isJump); //애니메이션 변경
         }
     }
     void Update()
     {
-        if (!thetimer.isPause)
+        if (!thetimer.isPause) //타이머가 끝났을 겨우
         {
             Jump();
             Moving(Speed);
@@ -78,18 +78,18 @@ public class Player : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if (therigidbody.velocity.y < 0)
+        if (therigidbody.velocity.y < 0) //점프를 뛰었을경우
         {
             Debug.DrawRay(therigidbody.position, Vector3.down, new Color(0, 1, 0));
-            RaycastHit2D rayHit = Physics2D.Raycast(therigidbody.position, Vector3.down, 1, LayerMask.GetMask("Ground"));
+            RaycastHit2D rayHit = Physics2D.Raycast(therigidbody.position, Vector3.down, 1, LayerMask.GetMask("Ground")); //플레이어 위치에서 아래로 빔을 쏨
             if (rayHit.collider != null)
             {
-                if (rayHit.distance < 0.5f)
+                if (rayHit.distance < 0.5f) //아래와 거리가 0.5f 이하일 경우
                 {
-                    isGround = true;
+                    isGround = true; //땅 true
                 }
                 else
-                    isGround = false;
+                    isGround = false; //그외에 땅이 아님.
             }
             else
                 isGround = false;

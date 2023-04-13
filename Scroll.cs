@@ -10,11 +10,11 @@ public class Scroll : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(-1 * speed * Time.deltaTime, 0, 0);
+        transform.Translate(-1 * speed * Time.deltaTime, 0, 0); //맵 스크롤 코드
 
-        if (transform.position.x <= endPosition)
+        if (transform.position.x <= endPosition) //맵의 끝이라면
         {
-            ScrollEnd();
+            ScrollEnd(); 
         }
     }
 

@@ -31,19 +31,19 @@ public class Timer : MonoBehaviour
     }
   private void TimerFun()
     { 
-        oneseconds -= Time.deltaTime;
-        TimerText.text = ((int)oneseconds % 60).ToString();
-        if (oneseconds <= 0)
+        oneseconds -= Time.deltaTime; //시간을 프레임 마다 감소
+        TimerText.text = ((int)oneseconds % 60).ToString(); //텍스트에 시간 기록
+        if (oneseconds <= 0) //시간이 0초 이하가 됬다면
         {
-            theplayer.isRun = true;
+            theplayer.isRun = true; //플레이어가 달리기 시작 
             anim.SetBool("isrun", theplayer.isRun);
             isPause = false;
-            deadCount.gameObject.SetActive(false);
+            deadCount.gameObject.SetActive(false); //ui 비활성화
             TimerText.gameObject.SetActive(false);
             ShowHelp.gameObject.SetActive(false);
         }
     }
-    private void DeadTimer()
+    private void DeadTimer() //죽었다가 부활했을 경우 6초에서 2초로 카운트 감소
     {
         deadseconds -= Time.deltaTime;
         deadCount.gameObject.SetActive(true);
